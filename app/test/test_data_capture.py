@@ -2,8 +2,8 @@ import unittest
 from app.src.data_capture import DataCapture
 from app.src.stats import Stats
 
-class TestDataCapture(unittest.TestCase):
 
+class TestDataCapture(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.capture = DataCapture()
@@ -24,7 +24,7 @@ class TestDataCapture(unittest.TestCase):
 
     def test_add_fail_on_value_not_int(self):
         with self.assertRaises(ValueError):
-            self.capture.add('10')
+            self.capture.add("10")
 
     def test_build_stats_success(self):
         self.capture.add(1)
@@ -42,5 +42,6 @@ class TestDataCapture(unittest.TestCase):
         r = self.capture.clean()
         self.assertEqual(r, None)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

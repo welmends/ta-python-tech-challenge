@@ -1,6 +1,6 @@
 from app.src.data_capture import DataCapture
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     capture = DataCapture()
     capture.add(3)
     capture.add(9)
