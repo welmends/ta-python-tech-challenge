@@ -57,6 +57,8 @@ class Stats:
         value : int
             value to be used as threshold
         """
+        if type(value) != int or value < 0 or value >= 1000:
+            raise ValueError("Value must a positive integer less than {}".format(len(self.__less)))
         return self.__less[value]
 
     def greater(self, value):
@@ -69,6 +71,8 @@ class Stats:
         value : int
             value to be used as threshold
         """
+        if type(value) != int or value < 0 or value >= 1000:
+            raise ValueError("Value must a positive integer less than {}".format(len(self.__greater)))
         return self.__greater[value]
 
     def between(self, value1, value2):
@@ -83,6 +87,9 @@ class Stats:
         value2 : int
             value to be used as upper threshold
         """
+        if type(value1) != int or value1 < 0 or value1 >= 1000 or \
+           type(value2) != int or value2 < 0 or value2 >= 1000:
+            raise ValueError("Value must a positive integer less than {}".format(len(self.__less)))
         if value1 > value2:
             value1, value2 = value2, value1
         return self.__less[value2+1]-self.__less[value1]
