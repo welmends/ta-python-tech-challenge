@@ -24,11 +24,11 @@ class DataCapture:
         clear the __map attribute.
     """
 
-    def __init__(self, MAX_VALUE=1000):
+    def __init__(self, MAX_VALUE : int = 1000):
         self.__MAX_VALUE = MAX_VALUE
         self.__map = [0]*self.__MAX_VALUE
 
-    def add(self, value):
+    def add(self, value: int) -> None:
         """Add a capture to the map for accumulation.
 
         It has a time complexity of O(1) or constant.
@@ -48,7 +48,7 @@ class DataCapture:
             raise ValueError("Value must a positive integer less than {}".format(self.__MAX_VALUE))
         self.__map[value]+=1
 
-    def build_stats(self):
+    def build_stats(self) -> Stats:
         """Call Stats class constructor and return a Stats object.
 
         The constructor has a time complexity of O(M), where M is the __MAX_VALUE attribute.
@@ -56,7 +56,7 @@ class DataCapture:
         """
         return Stats(self.__MAX_VALUE, self.__map)
 
-    def clean(self):
+    def clean(self) -> None:
         """Clean the __map attribute and return to initial state.
         """
         self.__map = [0]*self.__MAX_VALUE

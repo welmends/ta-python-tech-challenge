@@ -23,12 +23,12 @@ class Stats:
         returns the between statistics.
     """
 
-    def __init__(self, MAX_VALUE, map):
+    def __init__(self, MAX_VALUE: int, map: list):
         self.__less = [0]*MAX_VALUE
         self.__greater = [0]*MAX_VALUE
         self.__calculate_stats(map)
 
-    def __calculate_stats(self, map):
+    def __calculate_stats(self, map: list) -> None:
         """Calculates the stats and put then on some arrays.
 
         This function works by accessing map array and iteratively 
@@ -47,7 +47,7 @@ class Stats:
         for i in range(len(map)-2, -1, -1):
             self.__greater[i] = map[i+1]+self.__greater[i+1]
 
-    def less(self, value):
+    def less(self, value: int) -> int:
         """Find the number of captures that are less than the given value.
 
         It has a time complexity of O(1) or constant.
@@ -61,7 +61,7 @@ class Stats:
             raise ValueError("Value must a positive integer less than {}".format(len(self.__less)))
         return self.__less[value]
 
-    def greater(self, value):
+    def greater(self, value: int) -> int:
         """Find the number of captures that are greater than the given value.
 
         It has a time complexity of O(1) or constant.
@@ -75,7 +75,7 @@ class Stats:
             raise ValueError("Value must a positive integer less than {}".format(len(self.__greater)))
         return self.__greater[value]
 
-    def between(self, value1, value2):
+    def between(self, value1: int, value2: int) -> int:
         """Find the number of captures that are between two given values.
 
         It has a time complexity of O(1) or constant.
