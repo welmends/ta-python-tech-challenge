@@ -7,3 +7,8 @@ test:
 
 performance:
 	python3 -m app.performance.performance
+
+# Need to install black package with pip
+# pip install black
+black:
+	black --target-version=py35 . 
